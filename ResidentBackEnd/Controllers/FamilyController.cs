@@ -21,5 +21,11 @@ namespace ResidentBackEnd.Controllers
             await family.SaveChangesAsync();
             return Ok(f);
         }
+        [HttpGet("ViewFamily")]
+        public async Task<List<family>> ViewFamily()
+        {
+            return family.tblFamily.ToList();
+        }
+        
     }
 }

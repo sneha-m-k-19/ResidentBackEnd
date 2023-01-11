@@ -4,7 +4,7 @@
 
 namespace ResidentBackEnd.Migrations
 {
-    public partial class AdminMigration : Migration
+    public partial class firstmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -36,7 +36,8 @@ namespace ResidentBackEnd.Migrations
                     ApartmentNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ComplaintSubject = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Complaints = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Complaints = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    status = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -15,11 +15,34 @@ namespace ResidentBackEnd.Controllers
             this.Complaint = complaintcontext;
         }
         [HttpPost("insertComplaint")]
-        public async Task<ActionResult> InsertComplaint(Complaint c)
+        public async Task<ActionResult> InsertComplaint(ComplaintView c)
         {
-            Complaint.tblcomplaints.Add(c);
+            Complaint.tblcomplaint.Add(c);
             await Complaint.SaveChangesAsync();
             return Ok(c);
         }
+
+        [HttpGet("ViewComplaint")]
+        public async Task<List<ComplaintView>>ViewComplaint()
+        {
+            return Complaint.tblcomplaint.ToList();
+        }
+        [HttpGet("ApproveComplaint/{id}")]
+        public IActionResult ApproveComplaint(int id)
+        {
+            return Ok(Complaint.tblcomplaint.Find(id));
+        }
+        [HttpPost("UpdateComplaint")]
+        public async Task<ActionResult> UpdateComplaint(ComplaintView c)
+        {
+            Complaint.tblcomplaint.Update(c);
+            await Complaint.SaveChangesAsync();
+            return Ok(c);
+        }
+        /*[HttpGet("ViewComplaint/{[UserName]}")]
+        public IActionResult ViewComplaint(string username)
+        {
+            return Ok(Complaint.tblcomplaint.Find(username));
+        }*/
     }
 }

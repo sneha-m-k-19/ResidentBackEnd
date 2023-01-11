@@ -22,5 +22,17 @@ namespace ResidentBackEnd.Controllers
             await Apartment.SaveChangesAsync();
             return Ok(ap);
         }
+        [HttpGet("GetUser")]
+        public async Task<ActionResult> GetUser(string Username)
+        {
+            var apartment = Apartment.tblApartments.Where(c => c.UserName.Equals(Username)).First();
+            return Ok(apartment);
+        }
+        [HttpGet("ViewApartment")]
+        public async Task<List<Apartment>> ViewApartment()
+        {
+            return Apartment.tblApartments.ToList();
+        }
+        
     }
 }

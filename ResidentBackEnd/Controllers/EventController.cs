@@ -21,5 +21,22 @@ namespace ResidentBackEnd.Controllers
             await EventRegcs.SaveChangesAsync();
             return Ok(c);
         }
+        [HttpGet("ViewEvent")]
+        public async Task<List<EventRegcs>> ViewEvent()
+        {
+            return EventRegcs.tblEventReg.ToList();
+        }
+        [HttpGet("ApproveEvent/{id}")]
+        public IActionResult ApproveEvent(int id)
+        {
+            return Ok(EventRegcs.tblEventReg.Find(id));
+        }
+        [HttpPost("UpdateEvent")]
+        public async Task<ActionResult> UpdateEvent(EventRegcs c)
+        {
+            EventRegcs.tblEventReg.Update(c);
+            await EventRegcs.SaveChangesAsync();
+            return Ok(c);
+        }
     }
 }
