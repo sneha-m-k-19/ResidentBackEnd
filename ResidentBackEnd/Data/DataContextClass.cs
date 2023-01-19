@@ -18,6 +18,7 @@ namespace ResidentBackEnd.Data
         public DbSet<Expense> tblDeduction { get; set; }
 
         public DbSet<Payment> tblIncome { get; set; }
+        public DbSet<adminPanel> tblPanel { get; set; }
 
 
     }
